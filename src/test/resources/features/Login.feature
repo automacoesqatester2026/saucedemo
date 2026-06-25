@@ -1,12 +1,14 @@
 # language: pt
-#autor: Carolina Mesquita
+# autor: Carolina Mesquita
 
 Funcionalidade: Login no SauceDemo
 
-Cenário: Login realizado com sucesso
-Dado que o usuário acessa a página de login do SauceDemo
-Quando informa o usuário "standard_user"
-E informa a senha "secret_sauce"
-E clica no botão "Login"
-Então deve visualizar a página de produtos
-E deve visualizar o título "Products"
+Cenário: Login com sucesso e adição de dois produtos distintos à sacola
+  Dado que o usuário acessa o site da loja virtual "https://www.saucedemo.com"
+  E informa as credenciais válidas:
+    | usuário | senha |
+    | standard_user | secret_sauce |
+  E realiza o login com sucesso
+  Quando o usuário adiciona dois produtos distintos à sacola de compras
+  Então o sistema deve exibir o número 2 no ícone do carrinho no canto superior direito
+  E deve refletir corretamente a quantidade de itens atualmente adicionados

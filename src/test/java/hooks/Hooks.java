@@ -7,14 +7,12 @@ import io.cucumber.java.Before;
 public class Hooks {
 
     @Before
-    public void iniciarTeste() {
-
+    public void inicio() {
         DriverFactory.getDriver();
     }
 
     @After
-    public void finalizarTeste() {
-
+    public void fim() {
         DriverFactory.quitDriver();
     }
 }
