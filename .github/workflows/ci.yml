@@ -4,14 +4,10 @@ on:
   push:
     branches:
       - main
-      - master
-      - develop
 
   pull_request:
     branches:
       - main
-      - master
-      - develop
 
 jobs:
   testes:
@@ -20,8 +16,7 @@ jobs:
 
     steps:
 
-      - name: Checkout do projeto
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Configurar Java 21
         uses: actions/setup-java@v4
@@ -33,11 +28,5 @@ jobs:
       - name: Instalar Google Chrome
         uses: browser-actions/setup-chrome@v1
 
-      - name: Verificar versão do Chrome
-        run: chrome --version
-
-      - name: Dar permissão ao Maven
-        run: chmod +x mvnw
-
       - name: Executar os testes
-        run: ./mvnw clean test
+        run: mvn clean test
